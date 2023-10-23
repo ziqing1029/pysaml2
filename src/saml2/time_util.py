@@ -242,8 +242,6 @@ def str_to_time(timestr, format=TIME_FORMAT):
         except Exception as exc:
             print(f"Exception: {exc} on {timestr}", file=sys.stderr)
             raise
-        then = time.strptime(f"{elem.groups()[0]}Z", TIME_FORMAT)
-
     return time.gmtime(calendar.timegm(then))
 
 
