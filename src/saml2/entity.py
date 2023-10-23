@@ -1447,6 +1447,8 @@ class Entity(HTTPBase):
             # force signature checking to happen so that we can know whether
             # or not the response is signed. The attribute on the response class
             # is reset to the recorded value in the finally clause below.
+            if kwargs.get("do_not_verify") and kwargs["do_not_verify"]:
+                response.do_not_verify = True
             response.require_response_signature = True
             response = response.loads(xmlstr, False, origxml=xmlstr)
         except SigverError as err:

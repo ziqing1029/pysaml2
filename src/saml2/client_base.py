@@ -756,7 +756,7 @@ class Base(Entity):
 
     # ======== response handling ===========
 
-    def parse_authn_request_response(self, xmlstr, binding, outstanding=None, outstanding_certs=None, conv_info=None):
+    def parse_authn_request_response(self, xmlstr, binding, outstanding=None, outstanding_certs=None, conv_info=None, do_not_verify=None):
         """Deal with an AuthnResponse
 
         :param xmlstr: The reply as a xml string
@@ -787,6 +787,7 @@ class Base(Entity):
             "attribute_converters": self.config.attribute_converters,
             "allow_unknown_attributes": self.config.allow_unknown_attributes,
             "conv_info": conv_info,
+            "do_not_verify": True if do_not_verify else False
         }
 
         try:
