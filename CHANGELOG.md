@@ -1,23 +1,8 @@
 # Changelog
 
-## 7.4.2 (2023-06-11)
-
-- Add support for xmlsec1 1.3.x
-- Use the set crypto_backend when creating the entity metadata
-
-
-## 7.4.1 (2023-02-24)
+## 7.3.1 (2023-02-24)
 
 - Fix subject-id requirements processing
-
-
-## 7.4.0 (2023-02-14)
-
-- Ensure the ID of each Signature element is unique when signing an encrypted assertion
-- Bump Python to 3.9
-- dev: Add mypy configuration and type stubs
-- tests: move tox.ini config into pyproject.toml
-- docs: Update release instructions
 
 
 ## 7.3.0 (2023-02-14)

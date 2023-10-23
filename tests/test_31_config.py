@@ -103,7 +103,6 @@ IDP1 = {
                 },
                 "urn:mace:umu.se:saml:roland:sp": None,
             },
-            "error_url": "http://localhost:8080/error",
         }
     },
     # "xmlsec_binary" : "/usr/local/bin/xmlsec1",
@@ -287,9 +286,6 @@ def test_idp_1():
 
     attribute_restrictions = c.getattr("policy", "idp").get_attribute_restrictions("")
     assert attribute_restrictions["edupersonaffiliation"][0].match("staff")
-
-    error_url = c.getattr("error_url", "idp")
-    assert error_url == "http://localhost:8080/error"
 
 
 def test_idp_2():
