@@ -11,6 +11,7 @@ from datetime import timedelta
 import re
 import sys
 import time
+import arrow
 
 
 TIME_FORMAT = "%Y-%m-%dT%H:%M:%SZ"
@@ -234,6 +235,10 @@ def str_to_time(timestr, format=TIME_FORMAT):
     except ValueError:  # assume it's a format problem
         try:
             elem = TIME_FORMAT_WITH_FRAGMENT.match(timestr)
+            if elem:
+                then = time.strptime(f"{elem.groups()[0]}Z", TIME_FORMAT)
+            else:
+                then = arrow.get(timestr).to("utc").timetuple()
         except Exception as exc:
             print(f"Exception: {exc} on {timestr}", file=sys.stderr)
             raise
